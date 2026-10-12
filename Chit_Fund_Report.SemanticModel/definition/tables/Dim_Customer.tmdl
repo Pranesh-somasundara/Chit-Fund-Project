@@ -1,0 +1,40 @@
+table Dim_Customer
+	lineageTag: 0aa746b1-7714-4115-b73c-67e319dfa10d
+
+	column Member_ID
+		dataType: string
+		lineageTag: a0785678-5308-4a7c-8cfc-921bccc70cb1
+		summarizeBy: none
+		sourceColumn: Member_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 61156df0-3358-49a8-8941-304a611c1bd5
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: b2c52ad2-5b21-4a47-8feb-0da64e4fc6c3
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Customer = m
+		mode: import
+		source =
+				let
+				  Source = Excel.Workbook(File.Contents("C:\Users\Pranesh_PC\Downloads\Chit_Fund_V1_3_Members.xlsx"), null, true),
+				  #"Navigation 1" = Source{[Item = "Dim_Customer", Kind = "Sheet"]}[Data],
+				  #"Changed column type" = Table.TransformColumnTypes(#"Navigation 1", {{"Column1", type text}, {"Column2", type text}, {"Column3", type text}}, "en-US"),
+				  #"Promoted headers" = Table.PromoteHeaders(#"Changed column type", [PromoteAllScalars = true])
+				in
+				  #"Promoted headers"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,49 @@
+table Fact_Deposit
+	lineageTag: b41a21b4-23d7-4340-bd5f-8384da2a87c0
+
+	column Deposit_ID
+		dataType: string
+		lineageTag: 0879673f-31a2-4c73-97f7-4a2f32f46f2a
+		summarizeBy: none
+		sourceColumn: Deposit_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Member_ID
+		dataType: string
+		lineageTag: 820f7610-7c92-4d84-aef1-2b46d9702235
+		summarizeBy: none
+		sourceColumn: Member_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Deposit_Amount
+		dataType: int64
+		formatString: 0
+		lineageTag: a736fc94-c5af-4a68-843e-33813e7ba7a0
+		summarizeBy: sum
+		sourceColumn: Deposit_Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column Chit_ID
+		dataType: string
+		lineageTag: 6b478e65-4aab-48e0-a094-3cf005339fcd
+		summarizeBy: none
+		sourceColumn: Chit_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Fact_Deposit = m
+		mode: import
+		source =
+				let
+				  Source = Excel.Workbook(File.Contents("C:\Users\Pranesh_PC\Downloads\Chit_Fund_V1_3_Members.xlsx"), null, true),
+				  #"Navigation 1" = Source{[Item = "Fact_Deposit", Kind = "Sheet"]}[Data],
+				  #"Promoted headers" = Table.PromoteHeaders(#"Navigation 1", [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"Deposit_ID", type text}, {"Member_ID", type text}, {"Deposit_Amount", Int64.Type}}, "en-US")
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+

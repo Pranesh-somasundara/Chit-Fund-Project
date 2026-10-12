@@ -1,0 +1,24 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["Dim_Customer","Fact_Deposit","Fact_LoanTransaction","Dim_Chit"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Dim_Customer
+ref table Fact_Deposit
+ref table Fact_LoanTransaction
+ref table Dim_Chit
+ref table Dim_Calendar
+ref table Measure_Table
+
+ref cultureInfo en-US
+

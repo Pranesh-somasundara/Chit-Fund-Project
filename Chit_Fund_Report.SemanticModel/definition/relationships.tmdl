@@ -1,0 +1,20 @@
+relationship AutoDetected_0e7380f3-b1ce-44b1-8b80-0ac2d57f75c3
+	fromColumn: Fact_LoanTransaction.Member_ID
+	toColumn: Dim_Customer.Member_ID
+
+relationship a6bd1189-494c-30de-11d2-6c1b72b55c5a
+	fromColumn: Fact_Deposit.Member_ID
+	toColumn: Dim_Customer.Member_ID
+
+relationship AutoDetected_f41e70e1-257d-47e6-8130-111311331d86
+	fromColumn: Fact_Deposit.Chit_ID
+	toColumn: Dim_Chit.Chit_ID
+
+relationship AutoDetected_c33bc92c-8476-4140-a110-80570b7b79cd
+	fromColumn: Fact_LoanTransaction.Chit_ID
+	toColumn: Dim_Chit.Chit_ID
+
+relationship e27b3c57-3b18-1ce4-d144-4d4e9cf9b945
+	fromColumn: Fact_LoanTransaction.Date
+	toColumn: Dim_Calendar.Date
+

@@ -1,0 +1,61 @@
+table Dim_Calendar
+	lineageTag: abb7b0a2-c8d1-4ca8-9f01-67f98ffd16c5
+
+	column Date
+		formatString: dd-mm-yyyy
+		lineageTag: e2aacf5a-d261-46bf-a96d-763451c7b55a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year =
+			
+			YEAR(Dim_Calendar[Date])
+		formatString: 0
+		lineageTag: 33be7bbc-2db0-42ef-a867-8dc85e46a76f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number' =
+			
+			MONTH(Dim_Calendar[Date])
+		formatString: 0
+		lineageTag: e7a0f694-4d86-496d-b56b-7af6c2fb2863
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month =
+			
+			FORMAT(Dim_Calendar[Date],"MMM")
+		lineageTag: f74776fe-c5b8-4472-8e4a-873158c186e6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month' =
+			
+			FORMAT(Dim_Calendar[Date], "YYYY-MM")
+		lineageTag: 1fa2c6d0-d4b7-490d-bad7-47e91a8d672f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Calendar = calculated
+		mode: import
+		source =
+				
+				CALENDAR(
+				    MIN(Fact_LoanTransaction[Date]),
+				    max(Fact_LoanTransaction[Date])
+				)
+
+	annotation PBI_Id = 30f7ea196ee34cefaacb1e7c824ccbbb
+

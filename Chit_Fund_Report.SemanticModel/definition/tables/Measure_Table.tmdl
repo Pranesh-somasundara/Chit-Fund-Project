@@ -1,0 +1,49 @@
+table Measure_Table
+	lineageTag: ae136df2-fc51-489d-a723-acd7ab647476
+
+	measure 'Total Loan' =
+			
+			SUM(Fact_LoanTransaction[Loan])
+		formatString: 0
+		lineageTag: fdbcf808-13df-4d8f-9013-c8461ad70be7
+
+	measure 'Total Loan Refund' =
+			
+			SUM(Fact_LoanTransaction[Loan_Refund])
+		formatString: 0
+		lineageTag: 581be140-5af9-441e-8c3b-fd866d8c408e
+
+	measure 'Interest Paid' =
+			
+			SUM(Fact_LoanTransaction[Interest_Paid])
+		formatString: 0
+		lineageTag: d50310be-1cf0-4469-80b0-18144fee24df
+
+	measure 'Outstanding Loan' =
+			
+			[Total Loan] - [Total Loan Refund]
+		formatString: 0
+		lineageTag: f4bfd622-30ce-4407-9095-d42fb108c757
+
+	measure 'Current Interest' =
+			
+			[Outstanding Loan] *
+			SELECTEDVALUE(Dim_Chit[Loan_Interest_Rate])
+		lineageTag: 03079b54-d2ad-4ae0-87cc-6220bb3eec27
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Value
+		lineageTag: 9831ced4-146b-45ba-beac-80a3c2406e8c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Measure_Table = calculated
+		mode: import
+		source = {""}
+
+	annotation PBI_Id = ec97a9268494428981d9158f9c7eb444
+

@@ -1,0 +1,99 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 170.99999999999991
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 33.000000000000057,
+            "y": 0
+          },
+          "nodeIndex": "Dim_Chit",
+          "nodeLineageTag": "1a80fb19-e8d2-4f7c-bdae-8ebf42ca0db0",
+          "size": {
+            "height": 280.99999999999994,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 355.00000000000023,
+            "y": 5.9999999999999982
+          },
+          "nodeIndex": "Dim_Customer",
+          "nodeLineageTag": "0aa746b1-7714-4115-b73c-67e319dfa10d",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 510.99999999999994
+          },
+          "nodeIndex": "Fact_Deposit",
+          "nodeLineageTag": "b41a21b4-23d7-4340-bd5f-8384da2a87c0",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 633,
+            "y": 557
+          },
+          "nodeIndex": "Fact_LoanTransaction",
+          "nodeLineageTag": "08e4bd4f-3bfe-4e26-9e83-81566652703d",
+          "size": {
+            "height": 265,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 680.00000000000011,
+            "y": 0
+          },
+          "nodeIndex": "Dim_Calendar",
+          "nodeLineageTag": "abb7b0a2-c8d1-4ca8-9f01-67f98ffd16c5",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 964.00000000000011,
+            "y": 311
+          },
+          "nodeIndex": "Measure_Table",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100.00000000000004,
+      "pinKeyFieldsToTop": true,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

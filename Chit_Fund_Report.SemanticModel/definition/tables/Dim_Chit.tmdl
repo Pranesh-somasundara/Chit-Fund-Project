@@ -1,0 +1,72 @@
+table Dim_Chit
+	lineageTag: 1a80fb19-e8d2-4f7c-bdae-8ebf42ca0db0
+
+	column Chit_ID
+		dataType: string
+		lineageTag: 0860df2c-89e4-405f-9b0a-b35e6509380b
+		summarizeBy: none
+		sourceColumn: Chit_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Start_Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ce70b66d-680e-4c85-a2ec-ad510b49dce5
+		summarizeBy: none
+		sourceColumn: Start_Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Duration_Months
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f12dc2d-6e0b-4385-b422-36053f90524c
+		summarizeBy: sum
+		sourceColumn: Duration_Months
+
+		annotation SummarizationSetBy = Automatic
+
+	column Loan_Interest_Rate
+		dataType: double
+		lineageTag: fd9b2c3c-2a77-48d4-b911-7f0001e0fc65
+		summarizeBy: sum
+		sourceColumn: Loan_Interest_Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Chit_Interest_Rate
+		dataType: double
+		lineageTag: 4e14bb9a-f41d-4a50-86bc-fb4e53f4a69a
+		summarizeBy: sum
+		sourceColumn: Chit_Interest_Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Status
+		dataType: string
+		lineageTag: 960e3d65-7c63-4d3e-b2f9-5ef4e9ae9f86
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Chit = m
+		mode: import
+		source =
+				let
+				  Source = Excel.Workbook(File.Contents("C:\Users\Pranesh_PC\Downloads\Chit_Fund_V1_3_Members.xlsx"), null, true),
+				  #"Navigation 1" = Source{[Item = "Dim_Chit", Kind = "Sheet"]}[Data],
+				  #"Promoted headers" = Table.PromoteHeaders(#"Navigation 1", [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"Chit_ID", type text}, {"Start_Date", type date}, {"Duration_Months", Int64.Type}, {"Loan_Interest_Rate", type number}, {"Chit_Interest_Rate", type number}, {"Status", type text}}, "en-US")
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+

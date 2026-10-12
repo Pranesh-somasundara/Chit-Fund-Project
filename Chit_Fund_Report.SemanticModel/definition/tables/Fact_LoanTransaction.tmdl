@@ -1,0 +1,78 @@
+table Fact_LoanTransaction
+	lineageTag: 08e4bd4f-3bfe-4e26-9e83-81566652703d
+
+	column Transaction_ID
+		dataType: string
+		lineageTag: 1ac39f8d-f367-478e-9b76-58f45cf5a286
+		summarizeBy: none
+		sourceColumn: Transaction_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: dc78852f-2cde-4856-a201-36a2862f5719
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Member_ID
+		dataType: string
+		lineageTag: 0ad8c8ff-a3c5-4024-9b43-bfcf359bce3a
+		summarizeBy: none
+		sourceColumn: Member_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Loan
+		dataType: int64
+		formatString: 0
+		lineageTag: f3c521b3-18c4-489f-8609-8f26d82d0d66
+		summarizeBy: sum
+		sourceColumn: Loan
+
+		annotation SummarizationSetBy = Automatic
+
+	column Loan_Refund
+		dataType: int64
+		formatString: 0
+		lineageTag: 0149fd3d-52f8-4201-9360-f9b2c59c6efb
+		summarizeBy: sum
+		sourceColumn: Loan_Refund
+
+		annotation SummarizationSetBy = Automatic
+
+	column Interest_Paid
+		dataType: int64
+		formatString: 0
+		lineageTag: d11c2bb1-684d-423f-9a43-04edc025c17a
+		summarizeBy: sum
+		sourceColumn: Interest_Paid
+
+		annotation SummarizationSetBy = Automatic
+
+	column Chit_ID
+		dataType: string
+		lineageTag: 9d3e18b3-9b3b-4b12-94b0-f551bf1d4638
+		summarizeBy: none
+		sourceColumn: Chit_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Fact_LoanTransaction = m
+		mode: import
+		source =
+				let
+				  Source = Excel.Workbook(File.Contents("C:\Users\Pranesh_PC\Downloads\Chit_Fund_V1_3_Members.xlsx"), null, true),
+				  #"Navigation 1" = Source{[Item = "Fact_LoanTransaction", Kind = "Sheet"]}[Data],
+				  #"Promoted headers" = Table.PromoteHeaders(#"Navigation 1", [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"Transaction_ID", type text}, {"Date", type date}, {"Member_ID", type text}, {"Loan", Int64.Type}, {"Loan_Refund", Int64.Type}, {"Interest_Paid", Int64.Type}}, "en-US")
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+
