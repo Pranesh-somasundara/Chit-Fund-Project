@@ -1,7 +1,7 @@
 table Measure_Table
 	lineageTag: ae136df2-fc51-489d-a723-acd7ab647476
 
-	measure 'Total Loan' =
+	measure 'New Loan' =
 			
 			SUM(Fact_LoanTransaction[Loan])
 		formatString: 0
@@ -21,17 +21,132 @@ table Measure_Table
 
 	measure 'Outstanding Loan' =
 			
-			[Total Loan] - [Total Loan Refund]
+			[New Loan] - [Total Loan Refund]
 		formatString: 0
 		lineageTag: f4bfd622-30ce-4407-9095-d42fb108c757
 
 	measure 'Current Interest' =
 			
-			[Outstanding Loan] *
+			[Closing Loan] *
 			SELECTEDVALUE(Dim_Chit[Loan_Interest_Rate])
 		lineageTag: 03079b54-d2ad-4ae0-87cc-6220bb3eec27
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Closing Loan' =
+			
+			VAR CurrentDate =
+			    MAX(Dim_Calendar[Date])
+			
+			VAR CumulativeLoan =
+			    CALCULATE(
+			        [New Loan],
+			        FILTER(
+			            ALL(Dim_Calendar[Date]),
+			            Dim_Calendar[Date] <= CurrentDate
+			        )
+			    )
+			
+			VAR CumulativeRefund =
+			    CALCULATE(
+			        [Total Loan Refund],
+			        FILTER(
+			            ALL(Dim_Calendar[Date]),
+			            Dim_Calendar[Date] <= CurrentDate
+			        )
+			    )
+			
+			RETURN
+			    CumulativeLoan - CumulativeRefund
+		formatString: 0
+		lineageTag: 42e06f6e-4a1c-4a10-ab32-70c0eac1abc3
+
+	measure 'Total Deposit' =
+			
+			SUM(Fact_Deposit[Deposit_Amount])
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		lineageTag: 3b6063b7-43a9-4fde-8b12-bf238fa9ecbd
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	measure 'Chit Interest' =
+			
+			[Total Deposit] *
+			SELECTEDVALUE(Dim_Chit[Chit_Interest_Rate])
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		lineageTag: 05e06998-9ad5-4855-9305-1bb84af2b380
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	measure 'Maturity Amount' =
+			
+			[Total Deposit] + [Chit Interest]
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		lineageTag: 0f05c240-6f62-4fb2-b67a-518cee9f52ca
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	measure 'Opening Loan' =
+			
+			VAR CurrentDate =
+			    MIN(Dim_Calendar[Date])
+			
+			VAR PreviousDate =
+			    EOMONTH(CurrentDate, -1)
+			
+			RETURN
+			    COALESCE(
+			        CALCULATE(
+			            [Closing Loan],
+			            FILTER(
+			                ALL(Dim_Calendar),
+			                Dim_Calendar[Date] <= PreviousDate
+			            )
+			        ),
+			        0
+			    )
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		lineageTag: 15c4f82b-1f87-421f-a6de-a4b60938ae28
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	measure 'Loan Interest Due' =
+			
+			[Current Interest]
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		lineageTag: e7cac4b8-22f5-4e04-a138-da0863692e97
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	measure 'Total Members' =
+			
+			DISTINCTCOUNT(Dim_Customer[Member_ID])
+		formatString: 0
+		lineageTag: 06fada85-7279-4c61-a8f5-7840011fb0a6
+
+	measure 'Total Loans Given' =
+			
+			[New Loan]
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		lineageTag: 3c1f58da-2230-4e16-b2b9-de88f0912646
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	measure 'Current Outstanding Loan' =
+			
+			[Closing Loan]
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		lineageTag: ea7e3138-4872-4b76-b32a-2d161049538d
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	measure 'Total Interest Paid' =
+			
+			[Interest Paid]
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		lineageTag: e46eb1e4-e8e7-4c20-a0f8-2e3d31c1456d
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
 
 	column Value
 		lineageTag: 9831ced4-146b-45ba-beac-80a3c2406e8c

@@ -18,7 +18,7 @@ table Fact_Deposit
 		annotation SummarizationSetBy = Automatic
 
 	column Deposit_Amount
-		dataType: int64
+		dataType: decimal
 		formatString: 0
 		lineageTag: a736fc94-c5af-4a68-843e-33813e7ba7a0
 		summarizeBy: sum
@@ -41,9 +41,10 @@ table Fact_Deposit
 				  Source = Excel.Workbook(File.Contents("C:\Users\Pranesh_PC\Downloads\Chit_Fund_V1_3_Members.xlsx"), null, true),
 				  #"Navigation 1" = Source{[Item = "Fact_Deposit", Kind = "Sheet"]}[Data],
 				  #"Promoted headers" = Table.PromoteHeaders(#"Navigation 1", [PromoteAllScalars = true]),
-				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"Deposit_ID", type text}, {"Member_ID", type text}, {"Deposit_Amount", Int64.Type}}, "en-US")
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"Deposit_ID", type text}, {"Member_ID", type text}, {"Deposit_Amount", Int64.Type}}, "en-US"),
+				  #"Changed column type 1" = Table.TransformColumnTypes(#"Changed column type", {{"Deposit_Amount", Currency.Type}})
 				in
-				  #"Changed column type"
+				  #"Changed column type 1"
 
 	annotation PBI_ResultType = Table
 

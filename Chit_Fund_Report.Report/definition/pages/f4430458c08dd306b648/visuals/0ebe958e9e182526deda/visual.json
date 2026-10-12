@@ -1,0 +1,136 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "0ebe958e9e182526deda",
+  "position": {
+    "x": 42,
+    "y": 65,
+    "z": 0,
+    "height": 468,
+    "width": 873,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Calendar"
+                    }
+                  },
+                  "Property": "Year Month"
+                }
+              },
+              "queryRef": "Dim_Calendar.Year Month",
+              "nativeQueryRef": "Year Month"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Calendar"
+                    }
+                  },
+                  "Property": "Month"
+                }
+              },
+              "queryRef": "Dim_Calendar.Month",
+              "nativeQueryRef": "Month"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Table"
+                    }
+                  },
+                  "Property": "Opening Loan"
+                }
+              },
+              "queryRef": "Measure_Table.Opening Loan",
+              "nativeQueryRef": "Opening Loan"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Table"
+                    }
+                  },
+                  "Property": "New Loan"
+                }
+              },
+              "queryRef": "Measure_Table.New Loan",
+              "nativeQueryRef": "New Loan"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Table"
+                    }
+                  },
+                  "Property": "Total Loan Refund"
+                }
+              },
+              "queryRef": "Measure_Table.Total Loan Refund",
+              "nativeQueryRef": "Total Loan Refund"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Table"
+                    }
+                  },
+                  "Property": "Closing Loan"
+                }
+              },
+              "queryRef": "Measure_Table.Closing Loan",
+              "nativeQueryRef": "Closing Loan"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Table"
+                    }
+                  },
+                  "Property": "Interest Paid"
+                }
+              },
+              "queryRef": "Measure_Table.Interest Paid",
+              "nativeQueryRef": "Interest Paid"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Table"
+                    }
+                  },
+                  "Property": "Current Interest"
+                }
+              },
+              "queryRef": "Measure_Table.Current Interest",
+              "nativeQueryRef": "Current Interest"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
