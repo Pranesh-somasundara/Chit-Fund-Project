@@ -63,7 +63,11 @@ table Measure_Table
 
 	measure 'Total Deposit' =
 			
-			SUM(Fact_Deposit[Deposit_Amount])
+			SUMX(
+			    Fact_Deposit,
+			    Fact_Deposit[Number_Of_Deposit] *
+			    RELATED(Dim_Chit[Deposit_Amount])
+			)
 		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
 		lineageTag: 3b6063b7-43a9-4fde-8b12-bf238fa9ecbd
 
@@ -127,10 +131,10 @@ table Measure_Table
 	measure 'Total Loans Given' =
 			
 			[New Loan]
-		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		formatString: #,0
 		lineageTag: 3c1f58da-2230-4e16-b2b9-de88f0912646
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+		annotation PBI_FormatHint = {"isDecimal":true}
 
 	measure 'Current Outstanding Loan' =
 			
@@ -147,6 +151,24 @@ table Measure_Table
 		lineageTag: e46eb1e4-e8e7-4c20-a0f8-2e3d31c1456d
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	measure 'total number of deposits' =
+			
+			sum(Fact_Deposit[Number_Of_Deposit])
+		formatString: 0
+		lineageTag: bc5a4ec5-a060-41a6-83c8-c36a625c84e1
+
+	measure 'Total Chit Value' =
+			
+			SUMX(
+			    Fact_Deposit,
+			    Fact_Deposit[Number_Of_Chit] *
+			    RELATED(
+			        Dim_Chit[Chit_Amount])
+			)
+		lineageTag: bff07f67-a1a2-42aa-a882-4bcf21cb0b7d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Value
 		lineageTag: 9831ced4-146b-45ba-beac-80a3c2406e8c

@@ -1,0 +1,108 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "b03c0969bf67697f4fa2",
+  "position": {
+    "x": 460,
+    "y": 30,
+    "z": 3000,
+    "height": 722,
+    "width": 796,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Customer"
+                    }
+                  },
+                  "Property": "Name"
+                }
+              },
+              "queryRef": "Dim_Customer.Name",
+              "nativeQueryRef": "Name"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Table"
+                    }
+                  },
+                  "Property": "Outstanding Loan"
+                }
+              },
+              "queryRef": "Measure_Table.Outstanding Loan",
+              "nativeQueryRef": "Outstanding Loan"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Table"
+                    }
+                  },
+                  "Property": "Total Interest Paid"
+                }
+              },
+              "queryRef": "Measure_Table.Total Interest Paid",
+              "nativeQueryRef": "Total Interest Paid"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Table"
+                    }
+                  },
+                  "Property": "Total Loans Given"
+                }
+              },
+              "queryRef": "Measure_Table.Total Loans Given",
+              "nativeQueryRef": "Total Loans Given"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Table"
+                    }
+                  },
+                  "Property": "Total Loan Refund"
+                }
+              },
+              "queryRef": "Measure_Table.Total Loan Refund",
+              "nativeQueryRef": "Total Loan Refund"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Table"
+                    }
+                  },
+                  "Property": "Loan Interest Due"
+                }
+              },
+              "queryRef": "Measure_Table.Loan Interest Due",
+              "nativeQueryRef": "Loan Interest Due"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

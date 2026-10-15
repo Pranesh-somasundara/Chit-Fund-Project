@@ -57,6 +57,22 @@ table Dim_Chit
 
 		annotation SummarizationSetBy = Automatic
 
+	column Deposit_Amount
+		dataType: string
+		lineageTag: b31e0a8c-f9af-46b9-b441-b99b751ddc36
+		summarizeBy: none
+		sourceColumn: Deposit_Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column Chit_Amount
+		dataType: string
+		lineageTag: 34fe7338-f04a-4f31-a554-77a323fc0aeb
+		summarizeBy: none
+		sourceColumn: Chit_Amount
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Dim_Chit = m
 		mode: import
 		source =

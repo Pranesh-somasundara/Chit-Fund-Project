@@ -31,8 +31,7 @@ table Dim_Customer
 				let
 				  Source = Excel.Workbook(File.Contents("C:\Users\Pranesh_PC\Downloads\Chit_Fund_V1_3_Members.xlsx"), null, true),
 				  #"Navigation 1" = Source{[Item = "Dim_Customer", Kind = "Sheet"]}[Data],
-				  #"Changed column type" = Table.TransformColumnTypes(#"Navigation 1", {{"Column1", type text}, {"Column2", type text}, {"Column3", type text}}, "en-US"),
-				  #"Promoted headers" = Table.PromoteHeaders(#"Changed column type", [PromoteAllScalars = true])
+				  #"Promoted headers" = Table.PromoteHeaders(#"Navigation 1", [PromoteAllScalars = true])
 				in
 				  #"Promoted headers"
 
