@@ -11,7 +11,7 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "Jasmine_Flower_Theme8482765557295381.json",
+      "name": "Jasmine_Flower_Theme8793093012032837.json",
       "reportVersionAtImport": {
         "visual": "2.14.0",
         "report": "3.4.0",
@@ -65,8 +65,8 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "Jasmine_Flower_Theme8482765557295381.json",
-          "path": "Jasmine_Flower_Theme8482765557295381.json",
+          "name": "Jasmine_Flower_Theme8793093012032837.json",
+          "path": "Jasmine_Flower_Theme8793093012032837.json",
           "type": "CustomTheme"
         }
       ]
