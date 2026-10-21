@@ -34,7 +34,7 @@ table Dim_Calendar
 
 	column Month =
 			
-			FORMAT(Dim_Calendar[Date],"MMM")
+			FORMAT(Dim_Calendar[Date],"MMMM")
 		lineageTag: f74776fe-c5b8-4472-8e4a-873158c186e6
 		summarizeBy: none
 

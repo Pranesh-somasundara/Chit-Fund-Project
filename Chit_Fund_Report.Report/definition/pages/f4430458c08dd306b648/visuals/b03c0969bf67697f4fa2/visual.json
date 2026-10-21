@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "b03c0969bf67697f4fa2",
   "position": {
-    "x": 460,
-    "y": 30,
-    "z": 3000,
+    "x": 486.95652173913044,
+    "y": 123.91304347826086,
+    "z": 0,
     "height": 722,
     "width": 796,
-    "tabOrder": 3000
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "tableEx",
@@ -15,6 +15,20 @@
       "queryState": {
         "Values": {
           "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Customer"
+                    }
+                  },
+                  "Property": "Member_ID"
+                }
+              },
+              "queryRef": "Dim_Customer.Member_ID",
+              "nativeQueryRef": "Member_ID"
+            },
             {
               "field": {
                 "Column": {
@@ -37,11 +51,11 @@
                       "Entity": "Measure_Table"
                     }
                   },
-                  "Property": "Outstanding Loan"
+                  "Property": "Total Chit Value"
                 }
               },
-              "queryRef": "Measure_Table.Outstanding Loan",
-              "nativeQueryRef": "Outstanding Loan"
+              "queryRef": "Measure_Table.Total Chit Value",
+              "nativeQueryRef": "Total Chit Value"
             },
             {
               "field": {
@@ -51,25 +65,11 @@
                       "Entity": "Measure_Table"
                     }
                   },
-                  "Property": "Total Interest Paid"
+                  "Property": "Previous Month Interest"
                 }
               },
-              "queryRef": "Measure_Table.Total Interest Paid",
-              "nativeQueryRef": "Total Interest Paid"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Measure_Table"
-                    }
-                  },
-                  "Property": "Total Loans Given"
-                }
-              },
-              "queryRef": "Measure_Table.Total Loans Given",
-              "nativeQueryRef": "Total Loans Given"
+              "queryRef": "Measure_Table.Previous Month Interest",
+              "nativeQueryRef": "Previous Month Interest"
             },
             {
               "field": {
@@ -93,14 +93,45 @@
                       "Entity": "Measure_Table"
                     }
                   },
-                  "Property": "Loan Interest Due"
+                  "Property": "New Loan"
                 }
               },
-              "queryRef": "Measure_Table.Loan Interest Due",
-              "nativeQueryRef": "Loan Interest Due"
+              "queryRef": "Measure_Table.New Loan",
+              "nativeQueryRef": "New Loan"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Table"
+                    }
+                  },
+                  "Property": "Interest Paid"
+                }
+              },
+              "queryRef": "Measure_Table.Interest Paid",
+              "nativeQueryRef": "Interest Paid"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_Customer"
+                  }
+                },
+                "Property": "Member_ID"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "drillFilterOtherVisuals": true

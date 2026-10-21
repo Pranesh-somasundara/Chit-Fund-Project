@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
-  "name": "7e930b97f7530d184ac2",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "c74d476015cee7c9caf6",
   "position": {
-    "x": 921.11111111111109,
-    "y": 385.55555555555554,
-    "z": 1001,
-    "height": 154.44444444444443,
-    "width": 363.33333333333331,
-    "tabOrder": 1001
+    "x": 25.773195876288661,
+    "y": 32.989690721649488,
+    "z": 1000,
+    "height": 524.74226804123714,
+    "width": 300,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "slicer",
@@ -32,9 +32,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "isDefaultSort": true
       }
     },
     "objects": {
@@ -44,7 +41,7 @@
             "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'Dropdown'"
+                  "Value": "'Basic'"
                 }
               }
             }
@@ -84,14 +81,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Sandya'"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'Sakthi'"
+                                "Value": "'Bakya'"
                               }
                             }
                           ]
@@ -104,11 +94,13 @@
             }
           }
         }
-      ],
-      "selection": [
+      ]
+    },
+    "visualContainerObjects": {
+      "dropShadow": [
         {
           "properties": {
-            "selectAllCheckboxEnabled": {
+            "show": {
               "expr": {
                 "Literal": {
                   "Value": "true"

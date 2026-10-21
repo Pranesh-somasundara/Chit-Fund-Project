@@ -166,9 +166,54 @@ table Measure_Table
 			    RELATED(
 			        Dim_Chit[Chit_Amount])
 			)
+		formatString: 0
 		lineageTag: bff07f67-a1a2-42aa-a882-4bcf21cb0b7d
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Previous Month Interest' = ```
+			
+			COALESCE( 
+			    CALCULATE(
+			    [Current Interest],
+			    DATEADD(
+			        Dim_Calendar[Date],
+			        -1,
+			        MONTH
+			    )
+			), 
+			0
+			)
+			```
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		lineageTag: 41069160-82be-4e2f-a47b-8e69db5333bd
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	measure 'selected Year' =
+			
+			IF(
+			    HASONEVALUE(Dim_Calendar[Year]),
+			    FORMAT(
+			        SELECTEDVALUE(Dim_Calendar[Year]),
+			        "0"
+			    ),
+			    "All Year"
+			)
+		lineageTag: 5995dc34-0429-48b5-abca-9a41d72c611e
+
+	measure 'Selected Month' =
+			
+			if(
+			    HASONEVALUE(Dim_Calendar[Month]),
+			        FORMAT(
+			            SELECTEDVALUE(Dim_Calendar[Month]),
+			            "MMMM"
+			            ),
+			            "All Months "
+			
+			)
+		lineageTag: a5114af3-3c4e-4faf-97fd-9678aff78796
 
 	column Value
 		lineageTag: 9831ced4-146b-45ba-beac-80a3c2406e8c
