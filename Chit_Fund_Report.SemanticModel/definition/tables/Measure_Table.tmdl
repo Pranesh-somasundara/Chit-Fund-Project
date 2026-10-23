@@ -76,11 +76,9 @@ table Measure_Table
 	measure 'Chit Interest' =
 			
 			[Total Deposit] *
-			SELECTEDVALUE(Dim_Chit[Chit_Interest_Rate])
-		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+			MAX(Dim_Chit[Chit_Interest_Rate])
+		formatString: #,0
 		lineageTag: 05e06998-9ad5-4855-9305-1bb84af2b380
-
-		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
 
 	measure 'Maturity Amount' =
 			
@@ -171,24 +169,34 @@ table Measure_Table
 
 		annotation PBI_FormatHint = {"isDecimal":true}
 
-	measure 'Previous Month Interest' = ```
+	measure 'Previous Month Interest' =
 			
-			COALESCE( 
-			    CALCULATE(
-			    [Current Interest],
-			    DATEADD(
-			        Dim_Calendar[Date],
-			        -1,
-			        MONTH
+			VAR CurrentDate =
+			    MAX(Dim_Calendar[Date])
+			
+			VAR PreviousMonthStart =
+			    DATE(
+			        YEAR(CurrentDate),
+			        MONTH(CurrentDate) - 1,
+			        1
 			    )
-			), 
-			0
-			)
-			```
-		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+			
+			VAR PreviousMonthEnd =
+			    EOMONTH(CurrentDate, -1)
+			
+			RETURN
+			    CALCULATE(
+			        [Current Interest],
+			        REMOVEFILTERS(Dim_Calendar),
+			        DATESBETWEEN(
+			            Dim_Calendar[Date],
+			            PreviousMonthStart,
+			            PreviousMonthEnd
+			        )
+			    )
 		lineageTag: 41069160-82be-4e2f-a47b-8e69db5333bd
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'selected Year' =
 			
@@ -214,6 +222,34 @@ table Measure_Table
 			
 			)
 		lineageTag: a5114af3-3c4e-4faf-97fd-9678aff78796
+
+	measure 'Previous month interest_1' =
+			
+			CALCULATE(
+			    [Total Interest Paid],
+			    DATEADD(
+			        Dim_Calendar[Date],
+			        -1,
+			        MONTH
+			    )
+			)
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		lineageTag: 728370ef-46db-4499-9444-15a5aa6a12b0
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	measure 'Entire Deposite''s interest' =
+			
+			Chit_
+		lineageTag: 34e1589e-872a-492b-8a12-7181f360cf2b
+
+	measure 'Chit Interest Display (Entire Depsoites interest)' =
+			
+			FORMAT(
+			    [Chit Interest],
+			    "#,##0"
+			)
+		lineageTag: c0e8a286-6098-404e-9ea4-b4e0b4ce539d
 
 	column Value
 		lineageTag: 9831ced4-146b-45ba-beac-80a3c2406e8c

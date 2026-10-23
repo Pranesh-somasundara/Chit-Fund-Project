@@ -48,6 +48,21 @@ table Dim_Calendar
 
 		annotation SummarizationSetBy = Automatic
 
+	hierarchy 'Date Hierarchy'
+		lineageTag: 16829210-dc57-4b15-9f15-06206a966c32
+
+		level Date
+			lineageTag: 71ed02f1-3716-4c19-8c3e-dc2c1eef4851
+			column: Date
+
+		level Month
+			lineageTag: 11f5de58-c579-4a32-b900-41fc498b0970
+			column: Month
+
+		level Year
+			lineageTag: a01c1c65-8448-4ed9-b64e-174d70cf8cc5
+			column: Year
+
 	partition Dim_Calendar = calculated
 		mode: import
 		source =

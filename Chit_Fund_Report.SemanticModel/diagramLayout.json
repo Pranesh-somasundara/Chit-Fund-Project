@@ -5,7 +5,7 @@
       "ordinal": 0,
       "scrollPosition": {
         "x": 0,
-        "y": 39.999999999999986
+        "y": 0
       },
       "nodes": [
         {
@@ -16,7 +16,7 @@
           "nodeIndex": "Dim_Chit",
           "nodeLineageTag": "1a80fb19-e8d2-4f7c-bdae-8ebf42ca0db0",
           "size": {
-            "height": 280.99999999999994,
+            "height": 306.14041486174875,
             "width": 234
           },
           "zIndex": 1
@@ -42,7 +42,7 @@
           "nodeIndex": "Fact_Deposit",
           "nodeLineageTag": "b41a21b4-23d7-4340-bd5f-8384da2a87c0",
           "size": {
-            "height": 152,
+            "height": 282.73015728109385,
             "width": 234
           },
           "zIndex": 3
@@ -75,19 +75,33 @@
         },
         {
           "location": {
-            "x": 964.00000000000011,
-            "y": 311
+            "x": 1043.1923068145088,
+            "y": 0
           },
           "nodeIndex": "Measure_Table",
+          "nodeLineageTag": "ae136df2-fc51-489d-a723-acd7ab647476",
           "size": {
-            "height": 200,
+            "height": 705.3223387211516,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1327.1923068145088,
+            "y": 335
+          },
+          "nodeIndex": "Dynamic loan given and refund",
+          "nodeLineageTag": "93b389d7-cd19-46d6-a8c7-735c5081b8bb",
+          "size": {
+            "height": 152,
             "width": 234
           },
           "zIndex": 0
         }
       ],
       "name": "All tables",
-      "zoomValue": 100.00000000000004,
+      "zoomValue": 79.55318203769987,
       "pinKeyFieldsToTop": true,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

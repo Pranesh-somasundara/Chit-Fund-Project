@@ -19,6 +19,7 @@ ref table Fact_LoanTransaction
 ref table Dim_Chit
 ref table Dim_Calendar
 ref table Measure_Table
+ref table 'Dynamic loan given and refund'
 
 ref cultureInfo en-US
 

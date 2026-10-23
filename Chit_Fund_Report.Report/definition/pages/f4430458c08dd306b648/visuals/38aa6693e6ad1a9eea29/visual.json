@@ -1,13 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
-  "name": "1d20789cb832146e7713",
+  "name": "38aa6693e6ad1a9eea29",
   "position": {
-    "x": 54.347826086956516,
-    "y": 504.3478260869565,
-    "z": 3000,
-    "height": 151.08695652173913,
-    "width": 173.91304347826087,
-    "tabOrder": 3000
+    "x": 298.96907216494844,
+    "y": 371.13402061855669,
+    "z": 5002,
+    "height": 63.917525773195877,
+    "width": 183.50515463917526
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,11 +22,11 @@
                       "Entity": "Measure_Table"
                     }
                   },
-                  "Property": "Total Deposit"
+                  "Property": "Total Interest Paid"
                 }
               },
-              "queryRef": "Measure_Table.Total Deposit",
-              "nativeQueryRef": "Total Deposit"
+              "queryRef": "Measure_Table.Total Interest Paid",
+              "nativeQueryRef": "Total Interest Paid"
             }
           ]
         }
@@ -42,7 +41,7 @@
                     "Entity": "Measure_Table"
                   }
                 },
-                "Property": "Total Deposit"
+                "Property": "Total Interest Paid"
               }
             },
             "direction": "Descending"

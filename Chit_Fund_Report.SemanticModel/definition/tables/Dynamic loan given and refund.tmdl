@@ -1,0 +1,48 @@
+table 'Dynamic loan given and refund'
+	lineageTag: 93b389d7-cd19-46d6-a8c7-735c5081b8bb
+
+	column 'Dynamic loan given and refund'
+		lineageTag: 4d09e942-fa65-44e3-ba7a-d16e97712723
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Dynamic loan given and refund Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Dynamic loan given and refund Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dynamic loan given and refund Fields'
+		isHidden
+		lineageTag: d9e2ea01-74cf-4194-8b45-3390f4dd3808
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Dynamic loan given and refund Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dynamic loan given and refund Order'
+		isHidden
+		formatString: 0
+		lineageTag: 424aad55-5331-4859-9d84-6ddbae5c0635
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dynamic loan given and refund' = calculated
+		mode: import
+		source =
+				{
+				    ("Total Loans Given", NAMEOF('Measure_Table'[Total Loans Given]), 0),
+				    ("Total Loan Refund", NAMEOF('Measure_Table'[Total Loan Refund]), 1)
+				}
+
+	annotation PBI_Id = 6599eb5b185848e79366f41df3c81034
+

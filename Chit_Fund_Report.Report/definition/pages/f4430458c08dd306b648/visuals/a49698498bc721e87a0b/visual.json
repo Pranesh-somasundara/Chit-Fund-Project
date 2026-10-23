@@ -1,0 +1,41 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "a49698498bc721e87a0b",
+  "position": {
+    "x": 92.783505154639172,
+    "y": 371.13402061855669,
+    "z": 5001,
+    "height": 63.917525773195877,
+    "width": 183.50515463917526
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Table"
+                    }
+                  },
+                  "Property": "Chit Interest Display (Entire Depsoites interest)"
+                }
+              },
+              "queryRef": "Measure_Table.Chit Interest Display",
+              "nativeQueryRef": "Deposite's Interest",
+              "displayName": "Deposite's Interest"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "dea53ec3323bc1f576d4",
   "position": {
-    "x": 54.639175257731964,
-    "y": 37.113402061855673,
+    "x": 92.783505154639172,
+    "y": 140.20618556701032,
     "z": 1000,
     "height": 68.041237113402062,
-    "width": 346.39175257731961,
+    "width": 339.17525773195877,
     "tabOrder": 1000
   },
   "visual": {
@@ -87,7 +87,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Select User Name'"
+                  "Value": "'Select Member Name'"
                 }
               }
             },

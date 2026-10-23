@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "b03c0969bf67697f4fa2",
   "position": {
-    "x": 486.95652173913044,
-    "y": 123.91304347826086,
+    "x": 598.96907216494844,
+    "y": 124.74226804123711,
     "z": 0,
-    "height": 722,
-    "width": 796,
+    "height": 665.979381443299,
+    "width": 795.87628865979389,
     "tabOrder": 0
   },
   "visual": {
@@ -65,20 +65,6 @@
                       "Entity": "Measure_Table"
                     }
                   },
-                  "Property": "Previous Month Interest"
-                }
-              },
-              "queryRef": "Measure_Table.Previous Month Interest",
-              "nativeQueryRef": "Previous Month Interest"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Measure_Table"
-                    }
-                  },
                   "Property": "Total Loan Refund"
                 }
               },
@@ -112,6 +98,20 @@
               },
               "queryRef": "Measure_Table.Interest Paid",
               "nativeQueryRef": "Interest Paid"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Table"
+                    }
+                  },
+                  "Property": "Closing Loan"
+                }
+              },
+              "queryRef": "Measure_Table.Closing Loan",
+              "nativeQueryRef": "Closing Loan"
             }
           ]
         }
