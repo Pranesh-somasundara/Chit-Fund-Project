@@ -68,10 +68,9 @@ table Measure_Table
 			    Fact_Deposit[Number_Of_Deposit] *
 			    RELATED(Dim_Chit[Deposit_Amount])
 			)
-		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
 		lineageTag: 3b6063b7-43a9-4fde-8b12-bf238fa9ecbd
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+		formatStringDefinition = "#,##0"
 
 	measure 'Chit Interest' =
 			
@@ -238,9 +237,7 @@ table Measure_Table
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
 
-	measure 'Entire Deposite''s interest' =
-			
-			Chit_
+	measure 'Entire Deposite''s interest'
 		lineageTag: 34e1589e-872a-492b-8a12-7181f360cf2b
 
 	measure 'Chit Interest Display (Entire Depsoites interest)' =
@@ -250,6 +247,18 @@ table Measure_Table
 			    "#,##0"
 			)
 		lineageTag: c0e8a286-6098-404e-9ea4-b4e0b4ce539d
+
+	measure 'Total Loans Given (GrandTotal Loan)' =
+			
+			var _allloan =
+			CALCULATE(
+			    [New Loan],
+			    REMOVEFILTERS()
+			)
+			var _display =FORMAT(_allloan,"#,##0")
+			RETURN
+			_display
+		lineageTag: 83f200aa-fad3-4eb4-a51d-cefcf7a61a89
 
 	column Value
 		lineageTag: 9831ced4-146b-45ba-beac-80a3c2406e8c

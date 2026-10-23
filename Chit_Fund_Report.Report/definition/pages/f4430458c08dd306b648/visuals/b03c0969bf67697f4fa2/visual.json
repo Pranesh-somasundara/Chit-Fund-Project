@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "b03c0969bf67697f4fa2",
   "position": {
-    "x": 598.96907216494844,
-    "y": 124.74226804123711,
+    "x": 451,
+    "y": 151,
     "z": 0,
-    "height": 665.979381443299,
-    "width": 795.87628865979389,
+    "height": 567,
+    "width": 796,
     "tabOrder": 0
   },
   "visual": {
@@ -112,6 +112,20 @@
               },
               "queryRef": "Measure_Table.Closing Loan",
               "nativeQueryRef": "Closing Loan"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Table"
+                    }
+                  },
+                  "Property": "Interest Paid"
+                }
+              },
+              "queryRef": "Measure_Table.Interest Paid",
+              "nativeQueryRef": "Interest Paid"
             }
           ]
         }

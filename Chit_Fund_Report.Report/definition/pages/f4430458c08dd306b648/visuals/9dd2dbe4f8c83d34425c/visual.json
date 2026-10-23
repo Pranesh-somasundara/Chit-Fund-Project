@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
-  "name": "e5cd42d9b7c8d648f825",
+  "name": "9dd2dbe4f8c83d34425c",
   "position": {
-    "x": 1274.2268041237114,
-    "y": 23.711340206185568,
-    "z": 5000,
-    "height": 77.173913043478251,
-    "width": 227.17391304347825,
-    "tabOrder": 5000
+    "x": 574.33333333333337,
+    "y": 28.25,
+    "z": 10001,
+    "height": 91.75257731958763,
+    "width": 222.68041237113403,
+    "tabOrder": 10001
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,12 +23,11 @@
                       "Entity": "Measure_Table"
                     }
                   },
-                  "Property": "selected Year"
+                  "Property": "Total Loan Refund"
                 }
               },
-              "queryRef": "Measure_Table.selected_year",
-              "nativeQueryRef": "selected_year",
-              "format": "#,0"
+              "queryRef": "Measure_Table.Total Loan Refund",
+              "nativeQueryRef": "Total Loan Refund"
             }
           ]
         }
@@ -43,7 +42,7 @@
                     "Entity": "Measure_Table"
                   }
                 },
-                "Property": "selected Year"
+                "Property": "Total Loan Refund"
               }
             },
             "direction": "Descending"
@@ -60,6 +59,34 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'belowValue'"
+                }
+              }
+            },
+            "matchValueAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "textWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "heading": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Normal'"
                 }
               }
             }
@@ -130,6 +157,31 @@
                   "Value": "true"
                 }
               }
+            },
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#CEB163'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "30D"
+                }
+              }
             }
           },
           "selector": {
@@ -152,7 +204,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'SELECTED YEAR'"
+                  "Value": "'Loan Refunds'"
                 }
               }
             },
@@ -166,7 +218,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "14D"
                 }
               }
             },
@@ -183,6 +235,31 @@
                   "Value": "false"
                 }
               }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#074B37'"
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
@@ -194,6 +271,83 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.2
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "54D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "spacing": [
+        {
+          "properties": {
+            "spaceAbovePlotArea": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
                 }
               }
             }

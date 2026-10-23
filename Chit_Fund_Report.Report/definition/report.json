@@ -9,15 +9,6 @@
         "page": "2.3.1"
       },
       "type": "SharedResources"
-    },
-    "customTheme": {
-      "name": "Jasmine_Flower_Theme8793093012032837.json",
-      "reportVersionAtImport": {
-        "visual": "2.14.0",
-        "report": "3.4.0",
-        "page": "2.3.1"
-      },
-      "type": "RegisteredResources"
     }
   },
   "objects": {
@@ -65,9 +56,9 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "Jasmine_Flower_Theme8793093012032837.json",
-          "path": "Jasmine_Flower_Theme8793093012032837.json",
-          "type": "CustomTheme"
+          "name": "cropped_js_logo6817253928180734.png",
+          "path": "cropped_js_logo6817253928180734.png",
+          "type": "Image"
         }
       ]
     }
