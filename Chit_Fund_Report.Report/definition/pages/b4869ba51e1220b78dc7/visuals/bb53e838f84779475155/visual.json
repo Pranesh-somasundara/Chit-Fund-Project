@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "bb53e838f84779475155",
   "position": {
-    "x": 718.55670103092791,
-    "y": 165.97938144329896,
+    "x": 662,
+    "y": 103,
     "z": 1000,
-    "height": 653.60824742268039,
-    "width": 700,
+    "height": 588,
+    "width": 592,
     "tabOrder": 1000
   },
   "visual": {
@@ -42,12 +42,12 @@
                       "Entity": "Measure_Table"
                     }
                   },
-                  "Property": "Total Loans Given"
+                  "Property": "Total Loan Refund"
                 }
               },
-              "queryRef": "Measure_Table.Total Loans Given",
-              "nativeQueryRef": "Total Loans Given",
-              "displayName": "Total Loans Given"
+              "queryRef": "Measure_Table.Total Loan Refund",
+              "nativeQueryRef": "Total Loan Refund",
+              "displayName": "Total Loan Refund"
             }
           ],
           "fieldParameters": [
@@ -78,7 +78,7 @@
                     "Entity": "Measure_Table"
                   }
                 },
-                "Property": "Total Loans Given"
+                "Property": "Total Loan Refund"
               }
             },
             "direction": "Descending"

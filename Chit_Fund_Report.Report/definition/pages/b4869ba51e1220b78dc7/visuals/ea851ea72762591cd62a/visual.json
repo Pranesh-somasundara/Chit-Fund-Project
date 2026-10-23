@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "ea851ea72762591cd62a",
   "position": {
-    "x": 1151.5463917525774,
-    "y": 23.711340206185568,
+    "x": 1048,
+    "y": 11,
     "z": 4000,
     "height": 65.979381443298976,
     "width": 174.22680412371133,
@@ -84,6 +84,24 @@
           },
           "selector": {
             "id": "hover"
+          }
+        },
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#CEB163'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
           }
         }
       ],

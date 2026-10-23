@@ -28,7 +28,7 @@ table Measure_Table
 	measure 'Current Interest' =
 			
 			[Closing Loan] *
-			SELECTEDVALUE(Dim_Chit[Loan_Interest_Rate])
+			MAX(Dim_Chit[Loan_Interest_Rate])
 		lineageTag: 03079b54-d2ad-4ae0-87cc-6220bb3eec27
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -81,11 +81,8 @@ table Measure_Table
 
 	measure 'Maturity Amount' =
 			
-			[Total Deposit] + [Chit Interest]
-		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+			FORMAT( [Total Deposit] + [Chit Interest], "#,##0" )
 		lineageTag: 0f05c240-6f62-4fb2-b67a-518cee9f52ca
-
-		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
 
 	measure 'Opening Loan' =
 			
@@ -157,16 +154,13 @@ table Measure_Table
 
 	measure 'Total Chit Value' =
 			
-			SUMX(
+			FORMAT(SUMX(
 			    Fact_Deposit,
 			    Fact_Deposit[Number_Of_Chit] *
 			    RELATED(
 			        Dim_Chit[Chit_Amount])
-			)
-		formatString: 0
+			), "#,##0")
 		lineageTag: bff07f67-a1a2-42aa-a882-4bcf21cb0b7d
-
-		annotation PBI_FormatHint = {"isDecimal":true}
 
 	measure 'Previous Month Interest' =
 			
@@ -259,6 +253,73 @@ table Measure_Table
 			RETURN
 			_display
 		lineageTag: 83f200aa-fad3-4eb4-a51d-cefcf7a61a89
+
+	measure 'Total Deposit display' =
+			
+			FORMAT([Total Deposit], "#,##0" )
+		lineageTag: 85844169-1adb-4e2e-b18c-e84901b059df
+
+	measure 'Customer with No Loans' = ```
+			
+			COUNTROWS(
+			FILTER( 
+			    VALUES(Dim_Customer[Member_ID]),
+			    [Current Outstanding Loan] = 0
+			    )
+			)
+			```
+		formatString: 0
+		lineageTag: 119ec310-5cad-4479-9bed-70d83e73ca3f
+
+	measure 'Member With Maximum Interest Paid' = ```
+			
+			VAR MaxInterest =
+			    MAXX(
+			        VALUES(Dim_Customer[Name]),
+			        [Total Interest Paid]
+			    )
+			RETURN
+			    CONCATENATEX(  
+			        FILTER(
+			            VALUES(Dim_Customer[Name]),
+			            [Total Interest Paid] = MaxInterest
+			        ),
+			        Dim_Customer[name],
+			        ", "
+			    )
+			```
+		lineageTag: 7caa9404-f28c-47e1-8021-b705e2c41d48
+
+	measure 'Maximum Interest Paid' =
+			
+			MAXX(
+			    VALUES(Dim_Customer[Member_ID]),
+			    [Total Interest Paid]
+			)
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		lineageTag: 3a402cc7-6006-4c43-ae79-9a4c253c231b
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	measure 'Ranked Members' =
+			
+			RANK(
+			    DENSE,
+			    ALL(Dim_Customer[Name]),
+			    ORDERBY([Outstanding Loan], DESC)
+			)
+		formatString: 0
+		lineageTag: c7c817cc-11d9-4c31-a476-97d8ce4eb48d
+
+	measure 'Total chit of Month' =
+			
+			FORMAT([Total Chit Value] + [Chit Interest], "#,##0")
+		lineageTag: 29a28b99-ac48-40ff-b383-56f188c9ac98
+
+	measure '_current Interest' =
+			
+			format([Current Interest] - [Chit Interest], "#,##0")
+		lineageTag: caeb14fa-73d3-4b87-96c1-70cc6a3b99d2
 
 	column Value
 		lineageTag: 9831ced4-146b-45ba-beac-80a3c2406e8c

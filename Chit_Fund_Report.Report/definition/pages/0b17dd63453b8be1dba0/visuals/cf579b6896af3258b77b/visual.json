@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "cf579b6896af3258b77b",
+  "position": {
+    "x": 23.636363636363633,
+    "y": 259.09090909090907,
+    "z": 2,
+    "height": 85.454545454545453,
+    "width": 300
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Table"
+                    }
+                  },
+                  "Property": "Total chit of Month"
+                }
+              },
+              "queryRef": "Measure_Table.Total chit of Month",
+              "nativeQueryRef": "Total chit of Month"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

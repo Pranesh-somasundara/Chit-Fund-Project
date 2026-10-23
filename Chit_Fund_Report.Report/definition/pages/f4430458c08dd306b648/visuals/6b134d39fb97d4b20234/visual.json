@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "6b134d39fb97d4b20234",
   "position": {
-    "x": 1043,
-    "y": 28.25,
-    "z": 10004,
+    "x": 1027,
+    "y": 31.530927835051557,
+    "z": 5000,
     "height": 91.75257731958763,
     "width": 222.68041237113403,
-    "tabOrder": 10004
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,31 +23,16 @@
                       "Entity": "Measure_Table"
                     }
                   },
-                  "Property": "Total Deposit"
+                  "Property": "Total Deposit display"
                 }
               },
-              "queryRef": "Measure_Table.Total Deposit",
-              "nativeQueryRef": "Total Deposit"
+              "queryRef": "Measure_Table.Total Deposit display",
+              "nativeQueryRef": "Total Deposit display"
             }
           ]
         }
       },
       "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Measure_Table"
-                  }
-                },
-                "Property": "Total Deposit"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
         "isDefaultSort": true
       }
     },

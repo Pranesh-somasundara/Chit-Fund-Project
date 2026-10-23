@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "15081a2fd16e29294ece",
   "position": {
-    "x": 394.84536082474227,
-    "y": 59.793814432989691,
+    "x": 433,
+    "y": 18,
     "z": 2000,
     "height": 58.762886597938149,
     "width": 497.93814432989694,
@@ -82,7 +82,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'''Measure_Table''[Total Loans Given]'"
+                                "Value": "'''Measure_Table''[Total Loan Refund]'"
                               }
                             }
                           ]
@@ -110,7 +110,7 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'''Measure_Table''[Total Loans Given]'"
+                                      "Value": "'''Measure_Table''[Total Loan Refund]'"
                                     }
                                   }
                                 ]
@@ -134,7 +134,7 @@
                         },
                         "valueMap": [
                           {
-                            "0": "Total Loans Given"
+                            "0": "Total Loan Refund"
                           }
                         ]
                       }
