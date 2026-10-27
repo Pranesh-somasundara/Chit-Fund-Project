@@ -168,7 +168,7 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 4,
+                      "ColorId": 8,
                       "Percent": -0.25
                     }
                   }
@@ -179,6 +179,13 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "fillTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "21D"
                 }
               }
             }
@@ -204,6 +211,19 @@
             }
           }
         }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "gridlineShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -215,8 +235,8 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 4,
-                      "Percent": 0.6
+                      "ColorId": 0,
+                      "Percent": -0.3
                     }
                   }
                 }
@@ -225,7 +245,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "55D"
+                  "Value": "75D"
                 }
               }
             }
@@ -292,6 +312,20 @@
                       "Percent": 0.2
                     }
                   }
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "preset": {
+              "expr": {
+                "Literal": {
+                  "Value": "'TopRight'"
                 }
               }
             }

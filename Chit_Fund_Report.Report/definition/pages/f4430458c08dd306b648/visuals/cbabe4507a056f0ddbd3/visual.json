@@ -299,34 +299,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "eac6d818ba1cd67410f6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Measure_Table"
-              }
-            },
-            "Property": "Outstanding Loan"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "2919d01a0abef537f10a",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_Customer"
-              }
-            },
-            "Property": "Name"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

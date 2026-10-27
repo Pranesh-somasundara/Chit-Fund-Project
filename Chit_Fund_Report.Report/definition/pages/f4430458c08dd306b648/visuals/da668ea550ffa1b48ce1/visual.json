@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "da668ea550ffa1b48ce1",
   "position": {
-    "x": 798.23622047244089,
-    "y": 310.42519685039372,
+    "x": 793,
+    "y": 302,
     "z": 11000,
     "height": 303.37007874015745,
     "width": 451.5275590551181,
@@ -236,20 +236,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "0ac6139f861839a35b2d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_Customer"
-              }
-            },
-            "Property": "Name"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }
