@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "2e2b3c38de8875f205c1",
   "position": {
-    "x": 20,
-    "y": 23,
-    "z": 5001,
+    "x": 13,
+    "y": 16,
+    "z": 1000,
     "height": 47,
     "width": 212,
-    "tabOrder": 5001
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "textbox",
@@ -22,7 +22,8 @@
                     "value": "Loan Details",
                     "textStyle": {
                       "fontWeight": "bold",
-                      "fontSize": "24pt"
+                      "fontSize": "24pt",
+                      "color": "#ffffff"
                     }
                   }
                 ]
@@ -45,8 +46,22 @@
             }
           }
         }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "f266e3b96745b74a958a"
 }

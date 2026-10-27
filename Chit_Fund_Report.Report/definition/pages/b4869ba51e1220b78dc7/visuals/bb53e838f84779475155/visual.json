@@ -42,12 +42,12 @@
                       "Entity": "Measure_Table"
                     }
                   },
-                  "Property": "Total Loan Refund"
+                  "Property": "Total Loans Given"
                 }
               },
-              "queryRef": "Measure_Table.Total Loan Refund",
-              "nativeQueryRef": "Total Loan Refund",
-              "displayName": "Total Loan Refund"
+              "queryRef": "Measure_Table.Total Loans Given",
+              "nativeQueryRef": "Total Loans Given",
+              "displayName": "Total Loans Given"
             }
           ],
           "fieldParameters": [
@@ -78,7 +78,7 @@
                     "Entity": "Measure_Table"
                   }
                 },
-                "Property": "Total Loan Refund"
+                "Property": "Total Loans Given"
               }
             },
             "direction": "Descending"

@@ -48,7 +48,7 @@
             "outlineWeight": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "6D"
                 }
               }
             },
@@ -82,7 +82,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'''Measure_Table''[Total Loan Refund]'"
+                                "Value": "'''Measure_Table''[Total Loans Given]'"
                               }
                             }
                           ]
@@ -110,7 +110,7 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'''Measure_Table''[Total Loan Refund]'"
+                                      "Value": "'''Measure_Table''[Total Loans Given]'"
                                     }
                                   }
                                 ]
@@ -134,7 +134,7 @@
                         },
                         "valueMap": [
                           {
-                            "0": "Total Loan Refund"
+                            "0": "Total Loans Given"
                           }
                         ]
                       }
@@ -261,8 +261,8 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 6,
-                      "Percent": 0.6
+                      "ColorId": 8,
+                      "Percent": 0.4
                     }
                   }
                 }

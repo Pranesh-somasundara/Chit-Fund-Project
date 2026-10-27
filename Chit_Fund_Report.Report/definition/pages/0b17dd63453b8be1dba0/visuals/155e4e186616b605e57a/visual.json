@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "155e4e186616b605e57a",
+  "position": {
+    "x": 20,
+    "y": 7,
+    "z": 5001,
+    "height": 79,
+    "width": 280
+  },
+  "visualGroup": {
+    "displayName": "Loan Detail Heading",
+    "groupMode": "ScaleMode"
+  }
+}
