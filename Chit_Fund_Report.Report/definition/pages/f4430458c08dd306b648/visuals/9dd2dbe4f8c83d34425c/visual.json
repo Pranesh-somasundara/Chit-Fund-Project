@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "Measure_Table.Total Loan Refund",
-              "nativeQueryRef": "Total Loan Refund"
+              "nativeQueryRef": "Total Loan Refund",
+              "format": "#,0"
             }
           ]
         }

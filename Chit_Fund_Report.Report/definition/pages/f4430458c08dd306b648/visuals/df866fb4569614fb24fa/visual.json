@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "df866fb4569614fb24fa",
   "position": {
-    "x": 622,
-    "y": 175,
+    "x": 564,
+    "y": 169,
     "z": 6000,
-    "height": 91.75257731958763,
-    "width": 222.68041237113403,
+    "height": 92,
+    "width": 202,
     "tabOrder": 6000
   },
   "visual": {
@@ -23,16 +23,31 @@
                       "Entity": "Measure_Table"
                     }
                   },
-                  "Property": "Chit Interest Display (Entire Depsoites interest)"
+                  "Property": "Chit Interest"
                 }
               },
-              "queryRef": "Measure_Table.Chit Interest Display (Entire Depsoites interest)",
-              "nativeQueryRef": "Chit Interest Display (Entire Depsoites interest)"
+              "queryRef": "Measure_Table.Chit Interest",
+              "nativeQueryRef": "Chit Interest"
             }
           ]
         }
       },
       "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Measure_Table"
+                  }
+                },
+                "Property": "Chit Interest"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
         "isDefaultSort": true
       }
     },

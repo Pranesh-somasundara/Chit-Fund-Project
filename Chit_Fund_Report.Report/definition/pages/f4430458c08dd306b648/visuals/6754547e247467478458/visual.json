@@ -23,11 +23,11 @@
                       "Entity": "Measure_Table"
                     }
                   },
-                  "Property": "Total Loans Given (GrandTotal Loan)"
+                  "Property": "Total Loans Given"
                 }
               },
-              "queryRef": "Measure_Table.Total Loans Given (GrandTotal Loan)",
-              "nativeQueryRef": "Total Loans Given (GrandTotal Loan)"
+              "queryRef": "Measure_Table.Total Loans Given",
+              "nativeQueryRef": "Total Loans Given"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "Measure_Table"
                   }
                 },
-                "Property": "Total Loans Given (GrandTotal Loan)"
+                "Property": "Total Loans Given"
               }
             },
             "direction": "Descending"

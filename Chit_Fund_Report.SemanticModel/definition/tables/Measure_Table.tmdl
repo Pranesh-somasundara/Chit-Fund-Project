@@ -19,11 +19,16 @@ table Measure_Table
 		formatString: 0
 		lineageTag: d50310be-1cf0-4469-80b0-18144fee24df
 
-	measure 'Outstanding Loan' =
+	measure 'Outstanding Loan' = ```
+			
 			
 			[New Loan] - [Total Loan Refund]
-		formatString: 0
+			  
+			```
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
 		lineageTag: f4bfd622-30ce-4407-9095-d42fb108c757
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
 
 	measure 'Current Interest' =
 			

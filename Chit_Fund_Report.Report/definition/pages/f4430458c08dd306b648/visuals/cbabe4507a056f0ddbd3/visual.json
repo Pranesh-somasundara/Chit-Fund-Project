@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "cbabe4507a056f0ddbd3",
   "position": {
-    "x": 118,
-    "y": 326,
+    "x": 95,
+    "y": 302,
     "z": 8000,
-    "height": 303,
-    "width": 446,
+    "height": 396,
+    "width": 631,
     "tabOrder": 8000
   },
   "visual": {
@@ -46,7 +46,8 @@
                 }
               },
               "queryRef": "Measure_Table.Outstanding Loan",
-              "nativeQueryRef": "Outstanding Loan"
+              "nativeQueryRef": "Outstanding Loan",
+              "format": "#,0"
             }
           ]
         }
@@ -104,6 +105,32 @@
                   "Value": "1D"
                 }
               }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "labelPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "'InsideEnd'"
+                }
+              }
             }
           }
         }
@@ -115,6 +142,31 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "roundRange": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             }
@@ -129,7 +181,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top 3 members by Outstanding Loan'"
+                  "Value": "'Top 5 members by Outstanding Loan'"
                 }
               }
             }
@@ -143,6 +195,51 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "75D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "preset": {
+              "expr": {
+                "Literal": {
+                  "Value": "'TopRight'"
                 }
               }
             }
@@ -193,7 +290,7 @@
                   },
                   "Right": {
                     "Literal": {
-                      "Value": "3L"
+                      "Value": "5L"
                     }
                   }
                 }
@@ -204,21 +301,7 @@
         "howCreated": "User"
       },
       {
-        "name": "c208068e3e223898651e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_Customer"
-              }
-            },
-            "Property": "Name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "1262c43d200b19f1d3e8",
+        "name": "eac6d818ba1cd67410f6",
         "field": {
           "Measure": {
             "Expression": {
@@ -230,6 +313,20 @@
           }
         },
         "type": "Advanced"
+      },
+      {
+        "name": "2919d01a0abef537f10a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Customer"
+              }
+            },
+            "Property": "Name"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }
